@@ -1,0 +1,5 @@
+OS is {{ ansible_os_family }}
+Hostname is {{ ansible_facts['hostname'] }}
+Current date is {{ ansible_facts['date_time']['date'] }}
+Current time is {{ ansible_facts['date_time']['time'] }}
+Master IP is {{ ansible_facts['default_ipv4']['address'] }}

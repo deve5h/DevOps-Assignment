@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: load-balancer
+  name: hello-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: load-balancer
+  template:
+    metadata:
+      labels:
+        service: load-balancer
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:1.0
+        name: hello-app
+        ports:
+        - containerPort: 8080

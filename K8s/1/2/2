@@ -1,0 +1,6 @@
+kubectl apply -f assignment2.yaml
+kubectl get pods
+kubectl describe pods
+kubectl expose deployment hello-app --type=LoadBalancer --name=custom-service
+kubectl get services custom-service
+minikube service custom-service

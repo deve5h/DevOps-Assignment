@@ -1,0 +1,15 @@
+docker swarm init --advertise-addr 192.168.29.161
+
+*run docker swarn join command on second node
+
+docker node ls
+
+docker node update --role manager *joint_node
+
+docker node ls
+
+docker service create –name apacheonubuntu -- replicas 2 –p 80:80 *image_name
+
+docker service ls
+
+docker service ps *service_name

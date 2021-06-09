@@ -1,0 +1,1 @@
+master ansible_host=192.168.29.68 ansible_connection=ssh ansible_ssh_pass=ubuntu20.04 ansible_user=ubuntu

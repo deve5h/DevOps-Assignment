@@ -1,0 +1,13 @@
+docker build –t nginx-image .
+
+docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx-image
+
+*Open another terminal
+
+docker exec –it nginx bash
+
+cd /usr/share/nginx/html
+
+ ls –al
+
+*create a new file in first terminal and test it using ls –al in another terminal inside container 

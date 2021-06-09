@@ -1,0 +1,10 @@
+kubectl apply -f assignment1.yaml
+
+
+
+
+
+
+
+
+kubectl run tomcat --image tomcat:8.0

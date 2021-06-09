@@ -1,0 +1,29 @@
+docker volume create data_sharing
+
+docker container run -it --name one -v data_sharing:/data_sharing ubuntu
+
+echo "Statement from container one" >> data_sharing/assignment.txt
+
+exit
+
+docker container run -it --name two -v data_sharing:/data_sharing ubuntu
+
+echo "Statement from container two" >> data_sharing/assignment.txt
+
+exit
+
+docker restart one
+
+docker restart two
+
+docker exec –it one /bin/bash
+
+cat  data_sharing/assignment.txt
+
+exit
+
+docker exec –it two /bin/bash
+
+cat  data_sharing/assignment.txt
+
+exit 

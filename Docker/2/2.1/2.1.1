@@ -1,0 +1,9 @@
+docker container run -d --name pgsql -e POSTGRES_PASSWORD=mysecretpassword -v pgsql:/var/lib/postgresql/data postgres
+
+docker container logs pgsql
+
+docker container stop *container id
+
+docker container run -d --name pgsql2 -e POSTGRES_PASSWORD=mysecretpassword -v pgsql:/var/lib/postgresql/data postgres
+
+docker container logs pgsql  

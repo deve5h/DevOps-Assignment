@@ -1,0 +1,6 @@
+kubectl apply -f assignment3.yaml
+kubectl get pods
+kubectl describe pods
+kubectl expose deployment hello-world --type=NodePort --name=customize-service
+kubectl get services customize-service
+minikube service customize-service

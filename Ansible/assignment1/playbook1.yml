@@ -1,0 +1,23 @@
+-
+    hosts: target_machines
+    serial: 1
+    any_errors_fatal: true
+    name: assignment1
+    tasks:
+      - name: Folder
+        file:
+          mode: "0755"
+          path: /home/ubuntu/devesh
+          state: directory
+      - name: File
+        file:
+          path: /home/ubuntu/devesh/file
+          owner: ubuntu
+          group: ubuntu
+          mode: '0644'
+          state: touch
+      - mail:
+          to: kartikmaheshwari2112@gmail.com
+          subject: assignment1
+          body: assignment1 completion
+        ignore_errors: true

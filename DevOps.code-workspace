@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "Ansible"
+		},
+		{
+			"path": "Docker"
+		},
+		{
+			"path": "K8s"
+		},
+		{
+			"path": "Terraform"
+		},
+		{
+			"name": "DevOps",
+			"path": "."
+		}
+	]
+}

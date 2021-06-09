@@ -1,0 +1,8 @@
+-
+  hosts: slave1
+  tasks:
+    -  name: jinja parsing
+       template:
+         src: /home/ubuntu/assignment2/jinja.j2
+         dest: /home/ubuntu/devesh/result_assignment2
+         mode: '0644'

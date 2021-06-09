@@ -1,0 +1,7 @@
+---
+-  name: Creating a new user and installing apache web server in it
+   hosts: localhost
+   become: true
+   roles:
+     -  new_user
+     -  apache_installation

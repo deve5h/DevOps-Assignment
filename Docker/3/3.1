@@ -1,0 +1,13 @@
+docker network create my_net
+
+docker container run -d --name first --network my_net nginx
+
+docker container run -d --name second --network my_net nginx
+
+docker container exec –it first /bin/bash
+
+apt-get update
+
+apt-get install inetutils-ping
+
+ping second 

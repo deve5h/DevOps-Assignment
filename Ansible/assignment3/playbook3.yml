@@ -1,0 +1,13 @@
+-
+   name: create users
+   hosts: localhost
+   become: True
+   tasks:
+     - name: Add the user 'user1'
+       user:
+         name: user1
+         comment: 'user1 comment'
+         uid: 1040
+         state: present
+         password: fHQo0cLoB3/gQ  #openssl passwd #root123
+         shell: "/bin/bash"

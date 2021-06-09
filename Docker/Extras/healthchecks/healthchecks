@@ -1,0 +1,10 @@
+docker build -t healthchecks .
+docker container run -d -name healthchecks healthchecks
+
+
+
+
+
+
+
+docker container run -d --name p5 -e POSTGRES_PASSWORD=password --health-cmd="pg_isready -U postgres || exit 1" postgres

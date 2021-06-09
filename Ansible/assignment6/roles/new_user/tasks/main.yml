@@ -1,0 +1,8 @@
+-  name: New user creation named 'user2'
+   user:
+     name: user2
+     comment: 'user2'
+     uid: 1041
+     state: present
+     password: bg2NS1G/481v.
+     shell: "/bin/bash"

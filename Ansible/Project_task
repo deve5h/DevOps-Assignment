@@ -1,0 +1,63 @@
+cat /etc/group
+cat /etc/passwd
+sudo libuser-lid -g ba-ingestion
+
+-  hosts: localhost
+   become: true
+   vars:
+   -  docker_image_name: "ubuntu:20.04"
+   tasks:
+   -  name: launching 3 docker containers in privileged mode
+      docker_container:
+        name: "{{ item }}"
+        image: "{{ docker_image_name }}"
+        detach: yes
+        privileged: yes
+        interactive: yes
+        tty: yes
+        state: started
+      loop:
+       - container1
+       - container2
+       - container3
+
+   -  name: container info
+      docker_container_info:
+        name: abc
+      register: docker_info
+   -  name: printing IP address
+      debug:
+        msg: "{{ docker_info.container.NetworkSettings.IPAddress }}"
+
+   -  name: update container IP in inventory
+      blockinfile:
+        path: "/home/slave2/Desktop/b/inventory.txt"
+        block: |
+              [docker]
+              {{ docker_info.container.NetworkSettings.IPAddress }} ansible_user=root ansible_password=ubuntu ansible_connection=ssh
+
+
+
+
+               ---
+               - name: Create Users & Groups
+                 hosts: localhost
+                 remote_user: root
+                 become: true
+                 become_method: sudo
+                 become_user: root
+                 vars_files:
+                 -  secret.yaml
+                 tasks:
+                   - name: Create group
+                     group:
+                       name: ba-ingestion
+                       state: present
+                   - name: Create User in the group just created
+                     user:
+                       name: itk_svechoor
+                       uid: 1560
+                       state: present
+                       password: "{{ user_password | password_hash('sha512','A512') }}"
+                       shell: /bin/bash
+                       group: ba-ingestion
